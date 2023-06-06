@@ -3,7 +3,7 @@ Program Proyecto1;  {La estación del metro de Caracas requiere que usted desarr
                     en caso de que decida comprarlos debe pedirle los datos al usuario (Nombre, 
                     Apellido, Cédula y la cantidad de boletos que desea comprar), tener 
                     en cuenta que existen diferentes tipos de boletos y el usuario debe seleccionar 
-                    alguna de las siguientes opciones:}
+                    alguna de las siguientes opciones::}
 Uses crt;
 Var
     Lobby, Confirmacion1, boleto, cantidad, totalpagar: Integer; {funciones interfaz}
@@ -46,7 +46,7 @@ begin
             Repeat
                 begin
                     ClrScr;
-                    WriteLn ('Bienvenido ', Nombre,' ',Apellido, '.');
+                    WriteLn ('Bienvenido sr ', Nombre,' ',Apellido, '.');
                     WriteLn ('Precio de boletos:'); WriteLn;
                     WriteLn ('Metro: ', metro, '$.');
                     WriteLn ('Metrobus: ', metrobus, '$.'); WriteLn;
