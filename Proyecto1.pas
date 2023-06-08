@@ -9,6 +9,8 @@ Var
     Lobby, Confirmacion1, boleto, cantidad, totalpagar: Integer; {funciones interfaz}
     viajes, interaccion1, interaccion2, interaccion3, interaccion4, interaccion5, interaccion6, interaccion7, interaccion8, interaccion9, interaccion10: Integer; {funciones eleccion de boletos}
     Nombre, Apellido, Cedula, Skip: String; {recoleccion de datos con simbolos alfabeticos}
+    linea, subestacion: Longint; {Interfaz lineas y subestaciones}
+    SubestacionSalida, SubestacionLlegada: string;
 const
     metro=1;
     metrobus=2;
@@ -491,7 +493,7 @@ begin
                                 begin
                                     Repeat
                                         ClrScr;
-                                        WriteLn ('Usted ha elegido: Boleto metrotarjeta. Elija el tipo de viaje.'); WriteLn;
+                                        WriteLn ('Usted ha elegido: Boleto metrotarjeta integrada. Elija el tipo de viaje.'); WriteLn;
                                         WriteLn ('1 - Viaje en metro: 1$');
                                         WriteLn ('2 - Viaje en metrobus: 2$.'); WriteLn;
                                         WriteLn ('3 - Volver al inicio.');
@@ -502,7 +504,7 @@ begin
                                         WriteLn ('2 - 30 usos');
                                         WriteLn ('3 - 40 usos');
                                         ReadLn(viajes);                                        
-                                            if interaccion9=1 then
+                                            if interaccion10=1 then
                                                 begin
                                                     if viajes=1 then
                                                         begin
@@ -514,7 +516,7 @@ begin
                                                             viajes:=20; viajes:=(viajes*cantidad);
                                                             WriteLn ('Su total a pagar es: ', totalpagar, '$ por ', cantidad, ' boletos. Su numero de viajes en metro son: ', viajes);
                                                             ReadLn;
-                                                            interaccion9:=3;
+                                                            interaccion10:=3;
                                                         end
                                                     else if viajes=2 then
                                                         begin
@@ -526,7 +528,7 @@ begin
                                                             viajes:=30; viajes:=(viajes*cantidad);
                                                             WriteLn ('Su total a pagar es: ', totalpagar, '$ por ', cantidad, ' boletos. Su numero de viajes en metro son: ', viajes);
                                                             ReadLn;
-                                                            interaccion9:=3;
+                                                            interaccion10:=3;
                                                         end
                                                     else if viajes=3 then  
                                                         begin
@@ -538,10 +540,10 @@ begin
                                                             viajes:=40; viajes:=(viajes*cantidad);
                                                             WriteLn ('Su total a pagar es: ', totalpagar, '$ por ', cantidad, ' boletos. Su numero de viajes en metro son: ', viajes);
                                                             ReadLn;
-                                                            interaccion9:=3;
+                                                            interaccion10:=3;
                                                         end                                                                                                        
                                                 end;
-                                            if interaccion9=2 then
+                                            if interaccion10=2 then
                                                 begin
                                                     if viajes=1 then
                                                         begin
@@ -553,7 +555,7 @@ begin
                                                             viajes:=20; viajes:=(viajes*cantidad);
                                                             WriteLn ('Su total a pagar es: ', totalpagar, '$ por ', cantidad, ' boletos. Su numero de viajes en metro son: ', viajes);
                                                             ReadLn;
-                                                            interaccion9:=3;
+                                                            interaccion10:=3;
                                                         end
                                                     else if viajes=2 then
                                                         begin
@@ -565,7 +567,7 @@ begin
                                                             viajes:=30; viajes:=(viajes*cantidad);
                                                             WriteLn ('Su total a pagar es: ', totalpagar, '$ por ', cantidad, ' boletos. Su numero de viajes en metro son: ', viajes);
                                                             ReadLn;
-                                                            interaccion9:=3;
+                                                            interaccion10:=3;
                                                         end
                                                     else if viajes=3 then  
                                                         begin
@@ -577,12 +579,685 @@ begin
                                                             viajes:=40; viajes:=(viajes*cantidad);
                                                             WriteLn ('Su total a pagar es: ', totalpagar, '$ por ', cantidad, ' boletos. Su numero de viajes en metro son: ', viajes);
                                                             ReadLn;
-                                                            interaccion9:=3;
+                                                            interaccion10:=3;
                                                         end                                                                                                        
                                                 end;
                                     until interaccion9=3;
                                                        end
-                                                end;                       
+                            end;
+if (boleto>=1) and (boleto<10) then
+    begin
+        repeat
+            clrscr; 
+                writeln ('Seleccione el numero de linea en la que desea viajar.');
+                writeln ('1. Linea 1');
+                writeln ('2. Linea 2');
+                writeln ('3. Linea 3');
+                writeln ('4. Linea 4');
+                writeln ('5. Linea 5');
+                writeln ('6. Linea 6');
+                writeln ('7. Linea 7');
+                writeln ('8. Linea Clavetren');
+                Readln (linea);
+
+                if linea>8 then           
+                    begin
+                        writeln ('El numero ingresado no esta dentro de las opciones');
+                        writeln ('Presione cualquier tecla para continuar');
+                        readln;
+                    end
+                else if linea>=0 then
+        until (linea>=0) and (linea<9);
+        clrscr;
+            case linea of    
+                1:  Begin 
+                        writeln ('Usted ha elegido la Linea 1');
+                        writeln ('');
+                        writeln ('                 Seleccione la subestacion de salida');
+                        writeln (' _____________________________________________________________________');
+                        writeln ('|                         |                     |                     |');
+                        writeln ('|1. Propatria.            |9.  Parque Carabobo. |17. Miranda.         |');
+                        writeln ('|2. Perez Bonalde.        |10. Bellas Artes.    |18. Los Dos Caminos. |');
+                        writeln ('|3. Plaza Sucre.          |11. Colegio de Ing.  |19. Los Cotijos.     |');
+                        writeln ('|4. Gato Negro.           |12. Plaza Venezuela. |20. La California    |');
+                        writeln ('|5. Agua Salud.           |13. Sabana Grande.   |21. Petare.          |');
+                        writeln ('|6. Cabo Amarillo.        |14. Chacaito.        |22. Palo Verde       |');
+                        writeln ('|7. Capitolio.            |15. Chacao.          |                     |');
+                        writeln ('|8. La Hoyada.            |16. Altamira.        |                     |');
+                        writeln ('|_________________________|_____________________|_____________________|'); 
+                        readln (subestacion);
+                        case subestacion of
+                            1: begin 
+                                ClrScr;
+                                SubestacionSalida:='Propatria';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            2: begin 
+                                ClrScr;
+                                SubestacionSalida:='Perez Bonalde';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            3: begin 
+                                ClrScr;
+                                SubestacionSalida:='Plaza Sucre';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            4: begin 
+                                ClrScr;
+                                SubestacionSalida:='Gato Negro';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            5: begin 
+                                ClrScr;
+                                SubestacionSalida:='Agua Salud';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            6: begin 
+                                ClrScr;
+                                SubestacionSalida:='Cabo Amarillo';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            7: begin 
+                                ClrScr;
+                                SubestacionSalida:='Capitolio';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            8: begin 
+                                ClrScr;
+                                SubestacionSalida:='La Hoyada';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            9: begin 
+                                ClrScr;
+                                SubestacionSalida:='Parque Carabobo';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            10: begin 
+                                ClrScr;
+                                SubestacionSalida:='Bellas Artes';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            11: begin 
+                                ClrScr;
+                                SubestacionSalida:='Colegio de Ing.';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            12: begin 
+                                ClrScr;
+                                SubestacionSalida:='Plaza Venezuela';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            13: begin 
+                                ClrScr;
+                                SubestacionSalida:='Sabana Grande';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            14: begin 
+                                ClrScr;
+                                SubestacionSalida:='Chacaito';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            15: begin 
+                                ClrScr;
+                                SubestacionSalida:='Chacao';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            16: begin 
+                                ClrScr;
+                                SubestacionSalida:='Altamira';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            17: begin 
+                                ClrScr;
+                                SubestacionSalida:='Miranda';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            18: begin 
+                                ClrScr;
+                                SubestacionSalida:='Los Dos Caminos';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            19: begin 
+                                ClrScr;
+                                SubestacionSalida:='Los Cotijos';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            20: begin 
+                                ClrScr;
+                                SubestacionSalida:='La California';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            21: begin 
+                                ClrScr;
+                                SubestacionSalida:='Petare';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            22: begin 
+                                ClrScr;
+                                SubestacionSalida:='Palo Verde';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                        else
+                            writeln ('Subestación no reconocida.');
+                        end;                             
+                    end;
+
+                2:  begin
+                        writeln ('Usted ha elegido la Linea 2');
+                        writeln ('');
+                        writeln ('                 Seleccione la subestacion de salida');
+                        writeln (' _______________________________________________________________________________');
+                        writeln ('|                         |                     |                               |');
+                        writeln ('|1. El Silencio.          |4.  La Paz.          |7. Mamera.                     |');
+                        writeln ('|2. Capuchinos            |5. La Yaguara.       |8. Caricuao.                   |');
+                        writeln ('|3. Maternidad.           |6. Carapita.         |9. Zoologico.                  |');
+                        writeln ('|4. Artiguas.             |7. Antimano.         |10. Ruiz Pineda/ Las Adjuntas. |');
+                        writeln ('|_________________________|_____________________|_______________________________|'); 
+                        readln (subestacion);
+                    case subestacion of
+                            1: begin 
+                                ClrScr;
+                                SubestacionSalida:='El Silencio';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            2: begin 
+                                ClrScr;
+                                SubestacionSalida:='Capuchinos';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            3: begin 
+                                ClrScr;
+                                SubestacionSalida:='Maternidad';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            4: begin 
+                                ClrScr;
+                                SubestacionSalida:='Artiguas';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            5: begin 
+                                ClrScr;
+                                SubestacionSalida:='La Yaguara';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            6: begin 
+                                ClrScr;
+                                SubestacionSalida:='Carapita';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            7: begin 
+                                ClrScr;
+                                SubestacionSalida:='Antimano';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            8: begin 
+                                ClrScr;
+                                SubestacionSalida:='Caricuao';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            9: begin 
+                                ClrScr;
+                                SubestacionSalida:='Zoologico';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                            10: begin 
+                                ClrScr;
+                                SubestacionSalida:='Ruiz Pineda/ Las Adjuntas';
+                                writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+                                Readln;
+                            end;
+                        else
+                            writeln ('Subestación no reconocida.');
+                        end; 
+                    end;
+                    
+                
+                3:  begin
+                        writeln ('Usted ha elegido la Linea 3');
+                        writeln ('');
+                        writeln ('                 Seleccione la subestacion de salida');
+                        writeln (' ____________________________________________________________________');
+                        writeln ('|                         |                     |                    |');
+                        writeln ('|1. Plaza Venezuela.      |4.  La Bandera.      |7. Coche.           |');
+                        writeln ('|2. Ciudad Universitaria. |5. El Valle.         |8. Meracdo.         |');
+                        writeln ('|3. Los Simbolos.         |6. Los Jardines.     |9. La Rinconada.    |');
+                        writeln ('|_________________________|_____________________|____________________|'); 
+                        readln (subestacion); 
+                    case subestacion of
+        1: begin 
+            ClrScr;
+            SubestacionSalida:='Plaza Venezuela';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        2: begin 
+            ClrScr;
+            SubestacionSalida:='Ciudad Universitaria';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        3: begin 
+            ClrScr;
+            SubestacionSalida:='Los Simbolos';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        4: begin 
+            ClrScr;
+            SubestacionSalida:='La Bandera';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        5: begin 
+            ClrScr;
+            SubestacionSalida:='El Valle';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        6: begin 
+            ClrScr;
+            SubestacionSalida:='Los Jardines';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        7: begin 
+            ClrScr;
+            SubestacionSalida:='Coche';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        8: begin 
+            ClrScr;
+            SubestacionSalida:='Mercado';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        9: begin 
+            ClrScr;
+            SubestacionSalida:='La Rinconada';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+    else
+        writeln ('Subestación no reconocida.');
+    end;
+                    end;
+                
+                4:  begin
+                        writeln ('Usted ha elegido la Linea 4');
+                        writeln ('');
+                        writeln ('                 Seleccione la subestacion de salida');
+                        writeln (' ___________________________________________________________________');
+                        writeln ('|                         |                     |                   |');
+                        writeln ('|1. Zona Rental.          |6.  Maternidad.      |11. Antimano.      |');
+                        writeln ('|2. Parque Central.       |7.  Artigas.         |12. Mamera.        |');
+                        writeln ('|3. Nuevo Circo.          |8.  La Paz.          |13. Ruiz.          |');
+                        writeln ('|4. Teatros.              |9.  La Yaragua.      |                   |');
+                        writeln ('|5. Capichinos.           |10. Carapita.        |                   |');
+                        writeln ('|_________________________|_____________________|___________________|'); 
+                        readln (subestacion); 
+    case subestacion of
+        1: begin 
+            ClrScr;
+            SubestacionSalida:='Zona Rental';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        2: begin 
+            ClrScr;
+            SubestacionSalida:='Parque Central';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        3: begin 
+            ClrScr;
+            SubestacionSalida:='Nuevo Circo';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        4: begin 
+            ClrScr;
+            SubestacionSalida:='Teatros';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        5: begin 
+            ClrScr;
+            SubestacionSalida:='Capuchinos';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        6: begin 
+            ClrScr;
+            SubestacionSalida:='Maternidad';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        7: begin 
+            ClrScr;
+            SubestacionSalida:='Artigas';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        8: begin 
+            ClrScr;
+            SubestacionSalida:='La Paz';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        9: begin 
+            ClrScr;
+            SubestacionSalida:='La Yaguara';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        10: begin 
+            ClrScr;
+            SubestacionSalida:='Carapita';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        11: begin 
+            ClrScr;
+            SubestacionSalida:='Antimano';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        12: begin 
+            ClrScr;
+            SubestacionSalida:='Mamera';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        13: begin 
+            ClrScr;
+            SubestacionSalida:='Ruiz';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+    else
+        writeln ('Subestación no reconocida.');
+    end;
+                    end;            
+                5:  begin
+                        writeln ('Usted ha elegido la Linea 5');
+                        writeln ('');
+                        writeln ('                 Seleccione la subestacion de salida');
+                        writeln (' ____________________________________________________________________');
+                        writeln ('|                         |                     |                    |');
+                        writeln ('|1. Bello Monte.          |4. Bello Campo.      |7. Boleita.         |');
+                        writeln ('|2. Las Mercedes.         |5. Hugo Chavez.      |8. El Marquez.      |');
+                        writeln ('|3. Parque Simon Bolivar. |6. Montecristo.      |9. Warairarepano.   |');
+                        writeln ('|_________________________|_____________________|____________________|'); 
+                        readln (subestacion); 
+    case subestacion of
+        1: begin 
+            ClrScr;
+            SubestacionSalida:='Bello Monte';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        2: begin 
+            ClrScr;
+            SubestacionSalida:='Las Mercedes';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        3: begin 
+            ClrScr;
+            SubestacionSalida:='Parque Simon Bolivar';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        4: begin 
+            ClrScr;
+            SubestacionSalida:='Bello Campo';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        5: begin 
+            ClrScr;
+            SubestacionSalida:='Hugo Chavez';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        6: begin 
+            ClrScr;
+            SubestacionSalida:='Montecristo';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        7: begin 
+            ClrScr;
+            SubestacionSalida:='Boleita';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        8: begin 
+            ClrScr;
+            SubestacionSalida:='El Marquez';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        9: begin 
+            ClrScr;
+            SubestacionSalida:='Warairarepano';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+    else
+        writeln ('Subestación no reconocida.');
+    end;
+                    end;
+
+        6:  begin
+             writeln ('Usted ha elegido la Linea 6');
+             writeln ('');
+             writeln ('                 Seleccione la subestacion de salida');
+             writeln (' ____________________________________________________________________');
+             writeln ('|                         |                     |                    |');
+             writeln ('|1. Zoologico.            |2. La Rinconada.     |                    |');
+             writeln ('|_________________________|_____________________|____________________|'); 
+             readln (subestacion);
+    case subestacion of
+        1: begin 
+            ClrScr;
+            SubestacionSalida:='Zoologico';
+            writeln ('Usted ha seleccionado la subestacion de salida: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        2: begin 
+            ClrScr;
+            SubestacionSalida:='La Rinconada';
+            writeln ('Usted ha seleccionado la subestacion de salida: ', SubestacionSalida,'.');
+            Readln;
+        end;
+    else
+        writeln ('Subestación no reconocida.');
+    end;
+    writeln ('Seleccione la subestacion de llegada:');
+    readln (subestacion);
+        case subestacion of
+        1: begin 
+            ClrScr;
+            SubestacionLlegada:='Zoologico';
+            writeln ('Usted ha seleccionado la subestacion de llegada: ', SubestacionLlegada,'.');
+            Readln;
+        end;
+        2: begin 
+            ClrScr;
+            SubestacionLlegada:='La Rinconada';
+            writeln ('Usted ha seleccionado la subestacion de llegada: ', SubestacionLlegada,'.');
+            Readln;
+        end;
+    else
+        writeln ('Subestación no reconocida.');
+    end;
+
+                    end;
+                        7:  begin
+                        writeln ('Usted ha elegido la Linea 7');
+                        writeln ('');
+                        writeln ('                 Seleccione la subestacion de salida');
+                        writeln (' _____________________________________________________________________');
+                        writeln ('|                         |                       |                   |');
+                        writeln ('|1. Las Flores.           |5.  El Cristo.         |9.  Roosevelt.     |');
+                        writeln ('|2. Panteon.              |6.  Roca Tarpeya.      |10. La Bandera.    |');
+                        writeln ('|3. Socorro.              |7.  Presidente Medina. |11. Los Ilustres.  |');
+                        writeln ('|4. La Hoyada.            |8.  INCES.             |                   |');
+                        writeln ('|_________________________|_______________________|___________________|'); 
+                        readln (subestacion);
+    case subestacion of
+        1: begin 
+            ClrScr;
+            SubestacionSalida:='Las Flores';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        2: begin 
+            ClrScr;
+            SubestacionSalida:='Panteon';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        3: begin 
+            ClrScr;
+            SubestacionSalida:='Socorro';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        4: begin 
+            ClrScr;
+            SubestacionSalida:='La Hoyada';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        5: begin 
+            ClrScr;
+            SubestacionSalida:='El Cristo';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        6: begin 
+            ClrScr;
+            SubestacionSalida:='Roca Tarpeya';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        7: begin 
+            ClrScr;
+            SubestacionSalida:='Presidente Medina';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        8: begin 
+            ClrScr;
+            SubestacionSalida:='INCES';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        9: begin 
+            ClrScr;
+            SubestacionSalida:='Roosevelt';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        10: begin 
+            ClrScr;
+            SubestacionSalida:='La Bandera';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        11: begin 
+            ClrScr;
+            SubestacionSalida:='Los Ilustres';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+    else
+        writeln ('Subestación no reconocida.');
+    end;  
+                    end;
+                
+                8: begin
+                        writeln ('Usted ha elegido la Linea Clabetren');
+                        writeln ('');
+                        writeln ('                 Seleccione la subestacion de salida');
+                        writeln (' ____________________________________________________________________');
+                        writeln ('|                         |                     |                    |');
+                        writeln ('|1. Petare 2              |3. 5 de Julio.       |5. Warairarepano.   |');
+                        writeln ('|2. 19 de Abril.          |4. 24 de Julio.      |                    |');
+                        writeln ('|_________________________|_____________________|____________________|'); 
+                        readln (subestacion);
+    case subestacion of
+        1: begin 
+            ClrScr;
+            SubestacionSalida:='Petare 2';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        2: begin 
+            ClrScr;
+            SubestacionSalida:='19 de Abril';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        3: begin 
+            ClrScr;
+            SubestacionSalida:='5 de Julio';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        4: begin 
+            ClrScr;
+            SubestacionSalida:='24 de Julio';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+        5: begin 
+            ClrScr;
+            SubestacionSalida:='Warairarepano';
+            writeln ('Usted ha seleccionado la subestacion: ', SubestacionSalida,'.');
+            Readln;
+        end;
+    else
+        writeln ('Subestación no reconocida.');
+    end;
+                    end;              
+    end;
+end;
+{final}                       
      until interaccion1<>3
 until Lobby<>1;
 ClrScr;
